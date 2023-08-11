@@ -6,15 +6,15 @@
  * Description: prints the lowercase alphabet in reverse
  *		using the putchar function.
  *
- * Return: Always 0 (Success)
+ * Retur   Always - (Success)
  */
 int main(void)
 {
-	char lowercase;
+	char letter;
 
-	for (lowercase = 'z'; lowercase <= 'a'; lowercase--)
+	for (letter = 'z'; letter >= 'a'; letter--)
 	{
-		putchar(lowercase);
+		putchar(letter);
 	}
 	putchar('\n');
 	return (0);
