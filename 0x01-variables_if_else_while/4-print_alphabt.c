@@ -1,8 +1,10 @@
 #include <stdio.h>
+
 /**
  * main - Entry point
  *
- * Description: Prints the alphabet in lowercase using the putchar function.
+ * Description:Prints the alphabet in lowercase excluding the letters 'q' and 'e'
+ *              using the putchar function.
  *
  * Return: Always 0 (Success)
  */
@@ -12,7 +14,10 @@ int main(void)
 
 	for (letter = 'a'; letter <= 'z'; letter++)
 	{
-		putchar(letter);
+		if (letter != 'q' && letter != 'e')
+		{
+			putchar (letter);
+		}
 	}
 	putchar('\n');
 	return (0);
