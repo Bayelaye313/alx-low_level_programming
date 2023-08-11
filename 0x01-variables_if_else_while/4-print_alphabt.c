@@ -3,8 +3,8 @@
 /**
  * main - Entry point
  *
- * Description:Prints the alphabet in lowercase excluding the letters 'q' and 'e'
- *              using the putchar function.
+ * Description:Prints the alphabet in lowercase excluding the letters 'q'
+ *              and 'e' using the putchar function.
  *
  * Return: Always 0 (Success)
  */
