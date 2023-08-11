@@ -6,7 +6,7 @@
  * Description: prints the lowercase alphabet in reverse
  *		using the putchar function.
  *
- * Retur   Always - (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

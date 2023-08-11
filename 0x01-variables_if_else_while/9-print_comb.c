@@ -3,22 +3,23 @@
 /**
  * main - Entry point
  *
- * Description: prints all the numbers of base 16,
- *		in lowercase.
+ * Description:  prints all possible combinations of,
+ *		single-digit numbers.
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char lowercase;
+	char num;
 
-	for (lowercase = 0; lowercase <= 9; lowercase++)
+	for (num = 0; num <= 9; num++)
 	{
-		putchar(lowercase);
+		putchar(num + '0');
 	}
-	for (lowercase = 'a'; lowercase <= 'f'; lowercase++)
+	if (num != 9)
 	{
-		putchar(lowercase);
+		putchar(',');
+		putchar(' ');
 	}
 	putchar('\n');
 	return (0);

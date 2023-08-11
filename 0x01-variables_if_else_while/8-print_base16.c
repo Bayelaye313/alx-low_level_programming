@@ -12,7 +12,7 @@ int main(void)
 {
 	char lowercase;
 
-	for (lowercase = 0; lowercase <= 9; lowercase++)
+	for (lowercase = '0'; lowercase <= '9'; lowercase++)
 	{
 		putchar(lowercase);
 	}
