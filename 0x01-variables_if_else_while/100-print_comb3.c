@@ -17,8 +17,11 @@ int main(void)
 		for (num2 = num1 + 1; num2 <= 9; num2++)
 		putchar(num1 + '0');
 		putchar(num2 + '0');
-		putchar(',');
-                putchar(' ');
+		if (num1 != 8)
+		{
+			putchar(',');
+			putchar(' ');
+		}
 	}
 	putchar('\n');
 	return (0);
