@@ -25,7 +25,7 @@ int countWords(char *s)
 		}
 	}
 
-	return wordCount;
+	return (wordCount);
 }
 
 /**
@@ -44,13 +44,12 @@ char **strtow(char *str)
 	wordCount = countWords(str);
 
 	if (wordCount == 0)
-		return NULL;
+		return (NULL);
 
 	wordMatrix = (char **)malloc(sizeof(char *) * (wordCount + 1));
 
 	if (wordMatrix == NULL)
-		return NULL;
-
+		return (NULL);
 	for (i = 0; i <= strLength; i++)
 	{
 		if (str[i] == ' ' || str[i] == '\0')
@@ -61,8 +60,7 @@ char **strtow(char *str)
 				tempWord = (char *)malloc(sizeof(char) * (charIndex + 1));
 
 				if (tempWord == NULL)
-					return NULL;
-
+					return (NULL);
 				while (start < end)
 					*tempWord++ = str[start++];
 				*tempWord = '\0';
@@ -74,8 +72,6 @@ char **strtow(char *str)
 		else if (charIndex++ == 0)
 			start = i;
 	}
-
 	wordMatrix[wordIndex] = NULL;
-
-	return wordMatrix;
+	return (wordMatrix);
 }
