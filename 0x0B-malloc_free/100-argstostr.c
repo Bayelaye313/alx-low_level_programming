@@ -9,7 +9,7 @@
  */
 char *argstostr(int ac, char **av)
 {
-    int i, j, total_length = 0;
+    int i, j, total_length = 0, k = 0;
     char *result;
 
     if (ac == 0 || av == NULL)
@@ -24,11 +24,10 @@ char *argstostr(int ac, char **av)
         total_length++;
     }
 
-    result = malloc(sizeof(char) * (total_length + 1));
+    result = (char *)malloc(sizeof(char) * (total_length + 1));
     if (result == NULL)
         return (NULL);
 
-    int k = 0;
     for (i = 0; i < ac; i++)
     {
         for (j = 0; av[i][j]; j++)
