@@ -9,23 +9,23 @@
  */
 int countWords(char *s)
 {
-    int flag, charIndex, wordCount;
+	int flag, charIndex, wordCount;
 
-    flag = 0;
-    wordCount = 0;
+	flag = 0;
+	wordCount = 0;
 
-    for (charIndex = 0; s[charIndex] != '\0'; charIndex++)
-    {
-        if (s[charIndex] == ' ')
-            flag = 0;
-        else if (flag == 0)
-        {
-            flag = 1;
-            wordCount++;
-        }
-    }
+	for (charIndex = 0; s[charIndex] != '\0'; charIndex++)
+	{
+		if (s[charIndex] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			wordCount++;
+		}
+	}
 
-    return wordCount;
+	return wordCount;
 }
 
 /**
@@ -36,46 +36,46 @@ int countWords(char *s)
  */
 char **strtow(char *str)
 {
-    char **wordMatrix, *tempWord;
-    int i, wordIndex = 0, strLength = 0, wordCount, charIndex = 0, start, end;
+	char **wordMatrix, *tempWord;
+	int i, wordIndex = 0, strLength = 0, wordCount, charIndex = 0, start, end;
 
-    while (str[strLength])
-        strLength++;
-    wordCount = countWords(str);
+	while (str[strLength])
+		strLength++;
+	wordCount = countWords(str);
 
-    if (wordCount == 0)
-        return NULL;
+	if (wordCount == 0)
+		return NULL;
 
-    wordMatrix = (char **)malloc(sizeof(char *) * (wordCount + 1));
+	wordMatrix = (char **)malloc(sizeof(char *) * (wordCount + 1));
 
-    if (wordMatrix == NULL)
-        return NULL;
+	if (wordMatrix == NULL)
+		return NULL;
 
-    for (i = 0; i <= strLength; i++)
-    {
-        if (str[i] == ' ' || str[i] == '\0')
-        {
-            if (charIndex)
-            {
-                end = i;
-                tempWord = (char *)malloc(sizeof(char) * (charIndex + 1));
+	for (i = 0; i <= strLength; i++)
+	{
+		if (str[i] == ' ' || str[i] == '\0')
+		{
+			if (charIndex)
+			{
+				end = i;
+				tempWord = (char *)malloc(sizeof(char) * (charIndex + 1));
 
-                if (tempWord == NULL)
-                    return NULL;
+				if (tempWord == NULL)
+					return NULL;
 
-                while (start < end)
-                    *tempWord++ = str[start++];
-                *tempWord = '\0';
-                wordMatrix[wordIndex] = tempWord - charIndex;
-                wordIndex++;
-                charIndex = 0;
-            }
-        }
-        else if (charIndex++ == 0)
-            start = i;
-    }
+				while (start < end)
+					*tempWord++ = str[start++];
+				*tempWord = '\0';
+				wordMatrix[wordIndex] = tempWord - charIndex;
+				wordIndex++;
+				charIndex = 0;
+			}
+		}
+		else if (charIndex++ == 0)
+			start = i;
+	}
 
-    wordMatrix[wordIndex] = NULL;
+	wordMatrix[wordIndex] = NULL;
 
-    return wordMatrix;
+	return wordMatrix;
 }
