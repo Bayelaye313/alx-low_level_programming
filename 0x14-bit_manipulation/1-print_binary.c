@@ -11,9 +11,9 @@ void print_binary(unsigned long int n)
 
 	for (bit_index = 63; bit_index >= 0; bit_index--)
 	{
-		current_bit = num >> bit_index;
+		bit_count = num >> bit_index;
 
-		if (current_bit & 1)
+		if (bit_count & 1)
 		{
 			_putchar('1');
 			bit_count++;
