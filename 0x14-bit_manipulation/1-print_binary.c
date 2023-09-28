@@ -7,11 +7,11 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int current_bit;
-	int bit_index, bit_count = 0;
+	int i, bit_count = 0;
 
-	for (bit_index = 63; bit_index >= 0; bit_index--)
+	for (i = 63; i >= 0; i--)
 	{
-		bit_count = num >> bit_index;
+		current_bit = n >> i;
 
 		if (bit_count & 1)
 		{
