@@ -6,21 +6,28 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int current_bit;
-	int i, bit_count = 0;
+        unsigned long int current_bit;
+        int i;
 
-	for (i = 63; i >= 0; i--)
-	{
-		current_bit = n >> i;
+        /* Gérez le cas où n est 0 */
+        if (n == 0)
+        {
+                _putchar('0');
+                return;
+        }
 
-		if (bit_count & 1)
-		{
-			_putchar('1');
-			bit_count++;
-		}
-		else if (bit_count)
-			_putchar('0');
-	}
-	if (bit_count)
-		_putchar('0');
+        for (i = 63; i >= 0; i--)
+        {
+                current_bit = n >> i;
+
+                /* Vérifiez si le bit actuel est 1 ou 0 */
+                if (current_bit & 1)
+                {
+                        _putchar('1');
+                }
+                else
+                {
+                        _putchar('0');
+                }
+        }
 }
