@@ -15,7 +15,8 @@ void close_file(int fd);
  */
 char *_buffer(char *file)
 {
-	char *buffer = malloc(BUFFER_SIZE);
+	char *buffer;
+	buffer = malloc(sizeof(char) * BUFFER_SIZE);
 
 	if (buffer == NULL)
 	{
@@ -33,9 +34,10 @@ char *_buffer(char *file)
  */
 void close_file(int fd)
 {
-
-	if (close(fd) == -1)
-		
+	int f;
+	
+	f= close(fd);
+	if (f == -1)	
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
@@ -66,7 +68,7 @@ int main(int argc, char *argv[])
 	}
 
 	buffer = _buffer(argv[2]);
-	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);	
+	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	src = open(argv[1], O_RDONLY);
 	r = read(src, buffer, 1024);
 
@@ -87,8 +89,9 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(99);
 		}
-
+		
 		dest = open(argv[2], O_WRONLY | O_APPEND);
+		r = read(src, buffer, 1024);
 
 	} while (r > 0);
 
