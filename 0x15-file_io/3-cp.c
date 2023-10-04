@@ -16,6 +16,7 @@ void close_file(int fd);
 char *_buffer(char *file)
 {
 	char *buffer;
+
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
 
 	if (buffer == NULL)
@@ -36,7 +37,7 @@ void close_file(int fd)
 {
 	int f;
 	
-	f= close(fd);
+	f = close(fd);
 	if (f == -1)	
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
@@ -89,10 +90,8 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(99);
 		}
-		
 		dest = open(argv[2], O_WRONLY | O_APPEND);
 		r = read(src, buffer, 1024);
-
 	} while (r > 0);
 
 	free(buffer);
